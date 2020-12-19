@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../interfaces/cartelera-response';
 import Swiper from 'swiper';
+import { nextTick } from 'process';
 
 @Component({
   selector: 'app-slideshow',
@@ -10,10 +11,12 @@ import Swiper from 'swiper';
 export class SlideshowComponent implements OnInit, AfterViewInit {
   @Input() movies: Movie[];
 
+  mySwiper: Swiper;
+
   constructor() {}
 
   ngAfterViewInit(): void {
-    const mySwiper = new Swiper('.swiper-container', {
+    this.mySwiper = new Swiper('.swiper-container', {
       direction: 'horizontal',
       loop: true,
 
@@ -36,6 +39,13 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    console.log(this.movies);
+  }
+
+  onSlideNext() {
+    this.mySwiper.slideNext();
+  }
+
+  onSlidePrev() {
+    this.mySwiper.slideNext();
   }
 }
