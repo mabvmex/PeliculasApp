@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../interfaces/cartelera-response';
 import Swiper from 'swiper';
-import { nextTick } from 'process';
 
 @Component({
   selector: 'app-slideshow',
