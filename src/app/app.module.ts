@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
+// import { RatingModule } from 'ng-starrating';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PagesModule } from './pages/pages.module';
     HttpClientModule,
     AppRoutingModule,
     ComponentsModule,
-    PagesModule
+    PagesModule,
+    // RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
