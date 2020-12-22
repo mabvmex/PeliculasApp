@@ -18,8 +18,11 @@ export class HomeComponent implements OnInit {
     const max =  (document.documentElement.scrollHeight || document.body.scrollHeight);
 
     if (pos > max) {
-      this.peliculasService.getCartelera().subscribe(resp => {
-        this.movies.push(...resp.results);
+      console.log('cargando API');
+      if (this.peliculasService.cargando) { return; }
+
+      this.peliculasService.getCartelera().subscribe( movies => {
+        this .movies.push(...movies);
       });
       console.log('Llamar servicio');
     }
@@ -31,19 +34,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.peliculasService.getCartelera()
-    .subscribe(resp => {
-      this.movies = resp.results;
-      this.moviesSlideShow = resp.results;
-    })
+    .subscribe(movies => {
+      this.movies = movies;
+      this.moviesSlideShow = movies;
+    });
 
   }
 
 }
 
-
-/*
-
-Decorador (de una función) @Hostlistener: Escucha un evento propio del host: Escucho el window --> Scroll
-TAP: Dispara un efecto secundario. Se ejecuta el código cada vez el observable emite un valor. EL tab no modifica ni altera nada (es un pipe)
-
-*/
