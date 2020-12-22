@@ -23,7 +23,7 @@ export class PeliculasService {
     };
   }
 
-  getCartelera(): Observable<Movie> {
+  getCartelera(): Observable<Movie[]> {
 
     if (this.cargando) {
       return of ([]);
